@@ -18,11 +18,14 @@ public class AddQuestionController extends AbstractController{
 	
 	@Override
 	public ModelAndView execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		log.debug(request.getParameterMap().toString());
+		
+		if (request.getSession().getAttribute("user") == null) {
+			return jspView("redirect:/users/loginForm");
+		}
+		log.debug("SESSION : {}", request.getSession().getAttribute("user") == null);
 		Question newQuestion = new Question(request.getParameter("writer"), request.getParameter("title"), request.getParameter("contents"));
 		questionDao.insert(newQuestion);
 		log.debug("SAVED QUESTION: {}", newQuestion);
-		return jspView("/home.jsp").addObject("questions", questionDao.findAll());
+		return jspView("redirect:/");
 	}
-
 }
