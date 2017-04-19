@@ -32,6 +32,10 @@ public class Question {
     public long plusCountOfComment() {
     	return ++this.countOfComment;
     }
+    
+    public long minusCountOfComment() {
+    	return --this.countOfComment;
+    }
 
     public long getQuestionId() {
         return questionId;
@@ -61,7 +65,15 @@ public class Question {
         return countOfComment;
     }
 
-    @Override
+    public void setTitle(String title) {
+		this.title = title;
+	}
+
+	public void setContents(String contents) {
+		this.contents = contents;
+	}
+
+	@Override
     public String toString() {
         return "Question [questionId=" + questionId + ", writer=" + writer + ", title=" + title + ", contents="
                 + contents + ", createdDate=" + createdDate + ", countOfComment=" + countOfComment + "]";
