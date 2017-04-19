@@ -28,6 +28,10 @@ public class Question {
         this.createdDate = createdDate;
         this.countOfComment = countOfComment;
     }
+    
+    public long plusCountOfComment() {
+    	return ++this.countOfComment;
+    }
 
     public long getQuestionId() {
         return questionId;

@@ -19,6 +19,7 @@ function addAnswer(e) {
 function onSuccess(json, status){
   var answer = json.answer;
   var answerTemplate = $("#answerTemplate").html();
+  document.querySelector(".qna-comment-count strong").innerHTML++;
   var template = answerTemplate.format(answer.writer, new Date(answer.createdDate), answer.contents, answer.answerId, answer.answerId);
   $(".qna-comment-slipp-articles").prepend(template);
 }
