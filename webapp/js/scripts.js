@@ -22,7 +22,7 @@ function onSuccess(json, status) {
 	document.querySelector(".qna-comment-count strong").innerHTML++;
 	var template = answerTemplate.format(answer.writer, new Date(answer.createdDate), answer.contents, answer.answerId,
 			answer.answerId);
-	$(".qna-comment-slipp-articles").prepend(template);
+	$(".qna-comment--articles").append(template);
 }
 
 function onError(xhr, status) {
